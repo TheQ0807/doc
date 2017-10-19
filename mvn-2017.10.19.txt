@@ -1,0 +1,27 @@
+public class SampleServlet extends HttpServlet{
+
+	public void service(HttpServletRequest req, HttpServletResponse res){
+		servletConfig config = getServletConfig();
+		path = config.getInitParameter("directory");
+	}
+}
+
+
+	<servlet>
+		<servlet-name>app</servlet-name>
+		<servlet-class>SampleServlet</servlet-class>
+		<init-param>
+			<param-name>directory</param-name>
+			<param-value></param-name>
+		</init-param>
+	</servlet>
+	
+	<servlet-mapping>
+		<servlet-name>app</servlet-name>
+		<url-pattern>*.do</url-pattern>
+	</servlet-mapping>
+
+
+servlet은 지연로딩이다 lazyLoading
+
+load-on-startup 태그는 우선순위를 나타낸다.
