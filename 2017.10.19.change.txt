@@ -1,0 +1,6 @@
+web에서 쓰이는 controller, view, view resolver, handlermapping 은 servlet-context.xml에 등록한다.
+
+위에것을 빼고 root-context.xml에 등록한다.
+datesource, mybatis관련 등등 등록한다.
+
+
