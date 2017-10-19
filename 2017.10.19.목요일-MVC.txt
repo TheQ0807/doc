@@ -1,0 +1,34 @@
+spring MVC
+	MVC(Model-view-Controller) Model, View, Controller의 3가지 요소로 나뉨
+일본에서는 스트럭쳐 프레임웍을 많이 사용한다 우리나라는 ㄴ.ㄴ
+
+spring MVC의 주요 컴포넌트
+	DisparcherServlet
+		- 프론트 컨트롤러의 역할을 수행함
+			(모든 사용자의 요청을 받는다) 스프링에서 제공받음
+			우리는 구현하지 않아도됨 실질적인 사용자의 요청을 처리함
+	HandleMapping
+		- 컨트롤러에 정보를 모두 파악하고 있는것
+		  어떤 컨트롤러를 실행해야하는지를 알려줌
+		  핸들러맵핑또한 스프링이 완벽하게 구현하여서 제공해줌
+	Controller
+		- 우리가 구현하는 것
+	Interceptor
+		- 요청을 가로첸다 라는말로써 컨트롤러의 실행 전 후에 실행이됨
+		- 인터셉터를 이용하여서 로그인체크 등을 할 수 있음
+	ViewResolver
+		- 내가 사용할 View를 찾아주는 녀석임
+		- Spring에서 구현해서 제공해줌
+	View
+		- model2 개발방식에서는 jsp가 view다.
+		- jsp는 View Templete 이다.
+		- 다른타입의 컨텐츠로 변환해서 제공해준다.
+		- 특별한 타입의 컨텐츠로 데이터를 랜더링해서 제공해주는것
+		- 쉽게 이야기하자면 변환기다.
+
+	우리가 주로구현하는것은 Controller, Interceptor, View 를 구현한다.
+
+	spring 3.0에서 많은것들이 달라짐04화면전환 페이지6에 자세히 나와있음
+
+
+	클라이언트가요청을 보냄 >>> DispatcherServlet >>>> HandlerMapping 에게 물어봄 >> 다시알려주고 서블릿에게  컨트롤러에게 다시 요청을 보냄 
