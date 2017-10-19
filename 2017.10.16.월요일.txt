@@ -1,0 +1,48 @@
+<select id="getAll" resultType="Member">
+	select *
+	from tb_mambers
+	order by mem_id
+</select>
+
+<select id="searchMembers" parameterType="Criteria" resultType="Member">
+	select *
+	from tb_mambers
+	where mem_name = #{username}
+</select>
+
+
+위의 것을 
+mapper xml file 이라 부른다.
+
+
+
+public interface MemberDao {
+	List<Member> getAll();
+	List<Member> searchMembers(Criteria c);
+}
+
+
+위의 것을 
+mapper interface 라 부른다.
+
+
+
+---------------------------------------------------------------------------------------
+public class MemberDaoImpl implements MemberDao{
+	@AutoWired
+	private SqlSession session;
+	
+	public List<Member> getAll() {
+		return session.selectList("getAll");
+	}
+
+	public List<Member> searchMembers(Criteria c){
+		return session.selectList("searchMembers", c);
+
+	}
+}
+----------------------------------------------------------------------------------------
+위의 ----------안에 있는 코드는 마이바티스에서 따로 코딩하지 않는다. 왜냐하면 너무 뻔한 코드이기 때문이다. 따라서 자동으로 mybatis에서 만들어준다.
+
+위의 것은 
+mapper instance(auto create)라고 부른다.
